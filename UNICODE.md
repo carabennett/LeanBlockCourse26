@@ -9,7 +9,7 @@ In Lean files, type `\` followed by an abbreviation and press Space or Tab to in
 
 The tables below list every symbol used in this course. The canonical source for all Lean 4 abbreviations is [`abbreviations.json`](https://github.com/leanprover/vscode-lean4/blob/master/lean4-unicode-input/src/abbreviations.json) in the vscode-lean4 repository.
 
-## Logic (P02)
+## P02_Logic
 
 | Symbol | Input | Alternatives | Name |
 |:------:|-------|--------------|------|
@@ -25,7 +25,7 @@ The tables below list every symbol used in this course. The canonical source for
 | `⟩` | `\>` | `\rangle` | anonymous constructor (close) |
 | `▸` | `\t` | `\rw` | substitution / rewrite |
 
-## Sets (P03)
+## P03_SetTheory
 
 | Symbol | Input | Alternatives | Name |
 |:------:|-------|--------------|------|
@@ -40,7 +40,7 @@ The tables below list every symbol used in this course. The canonical source for
 | `∅` | `\empty` | `\emptyset` | empty set |
 | `ᶜ` | `\^c` | `\compl` | complement |
 
-## Types (P04)
+## P04_TypeTheory
 
 | Symbol | Input | Alternatives | Name |
 |:------:|-------|--------------|------|
@@ -49,7 +49,7 @@ The tables below list every symbol used in this course. The canonical source for
 | `↦` | `\mapsto` | `\ma` | mapsto |
 | `∘` | `\circ` | `\o`, `\comp` | function composition |
 
-## Numbers and Arithmetic (P05+)
+## P05_NaturalNumbers+
 
 | Symbol | Input | Alternatives | Name |
 |:------:|-------|--------------|------|
@@ -61,7 +61,7 @@ The tables below list every symbol used in this course. The canonical source for
 | `∣` | `\mid` | `\|`, `\dvd` | divides |
 | `⁻¹` | `\inv` | `\-1`, `\-` | inverse |
 
-## Greek Letters and General
+## General
 
 | Symbol | Input | Alternatives | Name |
 |:------:|-------|--------------|------|
