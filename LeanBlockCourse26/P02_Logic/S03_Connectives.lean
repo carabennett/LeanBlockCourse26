@@ -581,7 +581,7 @@ example (P Q R : Prop) : (P ∧ Q) ∨ R → P ∨ R :=
   | Or.inr r      => Or.inr r
 
 /-
-# Exercise Block B02
+## Exercise Block B02
 Try to get the proof with the fewest characters possible! You can use
 [ProofGolf](https://github.com/FordUniver/ProofGolf) to measure automatically.
 The scoring counts non-whitespace characters, ignoring `;` (since it is
