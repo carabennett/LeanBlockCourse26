@@ -263,16 +263,47 @@ theorem zero_ne_one : (0 : MyNat) ≠ 1 := eight_peano_axiom 0
 
 theorem one_ne_zero : (1 : MyNat) ≠ 0 := zero_ne_one.symm
 
--- Exercise 2.3 – **Eigth peano axiom**
--- `MyNat.rec` unlocks induction for us, which is the eight and final peano axiom
+-- Exercise 2.3 – **Ninth peano axiom**
+-- `MyNat.rec` unlocks induction for us, which is the ninth and final peano axiom
 
+-- We can prove this with the `induction` tactic ...
 theorem ninth_peano_axiom (P : MyNat → Prop) (h₁ : P 0) (h₂ : ∀ n, (P n → P n.succ)) :
-    ∀ n, P n := by
-  sorry
+    ∀ n, P n := by 
+  intro n
+  induction n with
+  | zero => exact h₁
+  | succ n ih => exact h₂ n ih 
+
+-- ... but actually this is just `MyNat.rec` given to us by the kernel
+theorem ninth_peano_axiom_rec (P : MyNat → Prop) (h₁ : P 0) (h₂ : ∀ n, (P n → P n.succ)) :
+    ∀ n, P n := fun n => rec h₁ (fun n ih ↦ h₂ n ih) n
+
+#print axioms ninth_peano_axiom_rec -- no axioms used
+
+/-
+Lean is type theory based and sets should not appear in fundamental logical statements
+and the construction of natural numers for us, but if we wanted to directly express
+the set theoretic formulation of the ninth peano axiom, we could by adding `(K : Set MyNat)`
+to our assumptions / arguments and noting that `Set.univ {α} := {α | True}`.
+-/
 
 theorem ninth_peano_axiom_set' (K : Set MyNat) (h₁ : 0 ∈ K) (h₂ : ∀ n, n ∈ K → n.succ ∈ K) :
     K = Set.univ := by
-  sorry
+  ext x
+  constructor
+  all_goals intro _
+  · trivial -- or `intro xk; exact Set.mem_univ x`
+  · exact ninth_peano_axiom (fun x => x ∈ K) h₁ h₂ x
+
+#print axioms ninth_peano_axiom_set' -- uses `[propext, Quot.sound]`
+
+example (K : Set MyNat) (h₁ : 0 ∈ K) (h₂ : ∀ n, n ∈ K → n.succ ∈ K) :
+    K = Set.univ := by
+  ext x
+  constructor
+  all_goals intro _
+  · trivial
+  · exact ninth_peano_axiom (fun x => x ∈ K) h₁ h₂ x
 
 end MyNat
 
@@ -282,28 +313,3 @@ end MyNat
 
 
 
-
-
-
-
-
-
-
-
-
-
-theorem ninth_peano_axiom (P : MyNat → Prop) (h₁ : P 0) (h₂ : ∀ n, (P n → P n.succ)) :
-    ∀ n, P n := by
-  intro n
-  induction n with
-  | zero => exact h₁
-  | succ n uh => sorry
-
-theorem ninth_peano_axiom_set' (K : Set MyNat) (h₁ : 0 ∈ K) (h₂ : ∀ n, n ∈ K → n.succ ∈ K) :
-    K = Set.univ := by
-  ext x
-  constructor
-  · intro xk
-    exact Set.mem_univ x
-  · intro xs
-    exact ninth_peano_axiom (fun n => n ∈ K) h₁ h₂ x
