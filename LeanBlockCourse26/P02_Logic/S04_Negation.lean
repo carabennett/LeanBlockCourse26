@@ -399,7 +399,7 @@ example (P Q : Prop) : (P → Q) ↔ (¬Q → ¬P) := by
 -- Prove this using a case distinction on `P`
 example (P Q : Prop) : (P → Q) → (¬P → Q) → Q := by
   intro pq npq
-  by_cases h: P
+  by_cases h : P
   · by_cases g : Q
     · exact g
     · exact pq h
@@ -409,7 +409,7 @@ example (P Q : Prop) : (P → Q) → (¬P → Q) → Q := by
 
 example (P Q : Prop) : (P → Q) → (¬P → Q) → Q := by
   intro pq npq
-  by_cases h: P
+  by_cases h : P
   all_goals
   try assumption
   try exact pq h

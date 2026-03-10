@@ -91,7 +91,7 @@ example (R S : Set α) : R ∪ S = ⋃₀ {R, S} := by
   ext x
   constructor
   · rintro (xr | xs)
-    · exact ⟨R, Or.inl rfl, xr⟩ 
+    · exact ⟨R, Or.inl rfl, xr⟩
     · exact ⟨S, Or.inr rfl, xs⟩
   · rintro ⟨t, ⟨tr | ts, h⟩⟩
     · exact Or.inl (tr ▸ h)
@@ -105,7 +105,7 @@ example (F G : Set (Set α)) : ⋃₀ (F ∪ G) = (⋃₀ F) ∪ (⋃₀ G) := b
     · left; exact ⟨t, tf, h₂⟩
     · right; exact ⟨t, tg, h₂⟩
   · rintro (⟨t, tf, h₁⟩ | ⟨t, tg, h₁⟩)
-    · exact ⟨t, by left; exact tf, h₁⟩ 
+    · exact ⟨t, by left; exact tf, h₁⟩
     · exact ⟨t, by right; exact tg, h₁⟩
 
 -- Exercise 1.3
@@ -271,7 +271,7 @@ example (F G : Set (Set α)) : (⋃₀ F) ∩ (⋂₀ G)ᶜ ⊆ ⋃₀ {t | ∃ 
 -- Exercise 1.16
 example (S : Set α) (h₁ : ∀ F, (⋃₀ F = S → S ∈ F)) : ∃ x, S = {x} := by
   have h₂ := h₁ {t | ∃ x ∈ S, t = {x}}
-  have h₃ : ⋃₀ {t | ∃ x ∈ S, t = {x}} = S := by 
+  have h₃ : ⋃₀ {t | ∃ x ∈ S, t = {x}} = S := by
     ext x
     constructor
     intro h₃

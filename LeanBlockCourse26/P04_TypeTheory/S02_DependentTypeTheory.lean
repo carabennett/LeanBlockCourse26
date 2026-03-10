@@ -1,5 +1,6 @@
 /-
-# S02: Dependent Type Theory
+# Dependent Type Theory
+=====================
 
 Minimal demos accompanying the theory slides. No Lean-specific machinery —
 just the core concepts: dependent functions, the Sort hierarchy, and Prop.

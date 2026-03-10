@@ -11,7 +11,7 @@ import LeanBlockCourse26.P05_NaturalNumbers.S01_Definition
 # Addition
 =====================
 
-Addition is an operator `+` on two natural numers that produces a third
+Addition is an operator `+` on two natural numbers that produces a third
 natural number and is defined inductively through two axioms:
 
 (i)  n + 0 = n
@@ -37,13 +37,13 @@ axiom my_add_zero (n : MyNat) : my_add n 0 = n
 -- ... and `my_add m n.succ = (my_add m n).succ`
 axiom my_add_succ (m n : MyNat) : my_add m n.succ = (my_add m n).succ
 
--- Note that defined axiomatically types of course still `#check` out ...
+-- Note that axiomatically defined types of course still `#check` out ...
 #check my_add
 #check my_add 0
 #check my_add 0 0
 
--- but we cannot actually `#eval' this addition, so we mark it `noncomputable`
--- #eval my_add 0 0 
+-- but we cannot actually `#eval` this addition, so we mark it `noncomputable`
+-- #eval my_add 0 0
 
 /-
 ## Exercise Block B01

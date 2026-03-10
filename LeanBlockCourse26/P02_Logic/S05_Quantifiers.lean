@@ -277,7 +277,7 @@ example {β} (r : β → Prop)
     (h₁ : ∃ x, p x) (h₂ : ∃ y, r y) : ∃ z : α × β, p z.fst ∧ r z.snd := by
   obtain ⟨x, px⟩ := h₁
   obtain ⟨y, qy⟩ := h₂
-  exact ⟨(x, y), ⟨px, qy⟩⟩ -- here `(qx, qy)` would *not* be accepted!
+  exact ⟨(x, y), ⟨px, qy⟩⟩ -- here `(px, qy)` would *not* be accepted!
 
 -- Exercise 1.6 (Master)
 example (α : Type) (p q : α → Prop) :

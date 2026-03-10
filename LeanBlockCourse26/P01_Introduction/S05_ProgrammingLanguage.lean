@@ -205,7 +205,7 @@ def Rectangle.area (r : Rectangle) : Float :=
 #eval myRectangle.area
 
 def Rectangle.perimeter (r : Rectangle) :=
-   2.0 * (r.width + r.height)
+  2.0 * (r.width + r.height)
 
 #eval myRectangle.perimeter
 

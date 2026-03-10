@@ -1,5 +1,6 @@
 /-
-# S03: Lean's Implementation
+# Lean's Implementation
+=====================
 
 Minimal demos: how Lean realizes dependent type theory.
 Inductive types, structures, classes, and instances.

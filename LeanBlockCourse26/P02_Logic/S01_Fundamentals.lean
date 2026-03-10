@@ -22,6 +22,7 @@ This module introduces the most basic building blocks for constructing proofs in
 
 Note: Tactic usage counts in this course are approximate, measured against
 Mathlib 2026-03-04.
+
 ## Proofs by reflexivity - the `rfl` tactic
 
 The `rfl` tactic proves goals that are true by definition
@@ -122,7 +123,7 @@ used to close the goal. This tactic is used around 45,000 times in mathlib.
 -- `_` makes the linter not complain, refers to intentionally unnamed variable
 -- same as in many other languages. Note that `\N` (or `\Nat`) produces `ℕ`
 example (n : ℕ) (_ : 10 > n) (h₂ : 1 < n) : 1 < n := by
-  exact h₂ -- `exact` is leans `return` (in tactic mode, in term mode its implicit)
+  exact h₂ -- `exact` is Lean's `return` (in tactic mode, in term mode its implicit)
 
 -- Given proposition `P` and its proof, prove `P`
 example (P : Prop) (p : P) : P := by

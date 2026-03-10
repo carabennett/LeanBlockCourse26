@@ -1,5 +1,6 @@
 /-
-# S04: Verified Computation and Trust
+# Verified Computation and Trust
+=====================
 
 The payoff: verified computation with Subtype, axiom tracing with
 `#print axioms`, and the trust model.
@@ -11,7 +12,7 @@ import Mathlib.Tactic.Cases
 
 open Nat
 
-/-!
+/-
 ## Type classes and instances
 
 ### Inhabited
@@ -24,7 +25,7 @@ open Nat
 
 -- `Inhabited α` lives in `Type`: we can compute with the default element.
 
-/-!
+/-
 ### Nonempty
 -/
 
@@ -43,7 +44,7 @@ example : Nonempty P := Nonempty.intro p
 -- #eval Nonempty.intro Nat
 #check Nonempty.intro P
 
-/-!
+/-
 ### Decidable and DecidablePred
 -/
 
@@ -63,7 +64,7 @@ noncomputable instance pNatEvenDecidableClassical : DecidablePred p_nat_even :=
   -- | isFalse => sorry
   -- | isTrue => sorry
 
-/-!
+/-
 ## Verified computation
 
 The pattern:
