@@ -134,7 +134,20 @@ theorem zero_add (n : MyNat) : 0 + n = n := by
 
 /-
 ## Exercise Block B02
+
+**Remark 1:** `0` without any additional context will be interpreted as `Nat.zero`.
+If there is additional `MyNat` context around it, type inference will be able
+to understand that this should actually instead be `MyNat.zero`. If you should
+run into issues where this does *not*  work, you can explicitly specify the
+type as usual through `(0 : MyNat)`.
+
+**Remark 2:** If you encounter `MyNat.zero` but want to apply a theorem that
+uses `(0 : MyNat)` then the type checker can sometimes not consolidate these
+two. For this we can simply define a little `zero_zero` helper with which we
+can rewrite.
 -/
+
+theorem zero_zero : 0 = MyNat.zero := rfl
 
 -- Exercise 2.1
 theorem succ_add (n m : MyNat) : succ n + m = succ (n + m) := by
