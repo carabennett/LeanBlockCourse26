@@ -46,10 +46,16 @@ To do this, you should:
       or ask ChatGPT, Claude, ... with online research tools and maybe even a lean environment.
 -/
 
+
+#check Fintype
+
 theorem infinitude_of_primes_tfae : [
 
-    -- The set of primes is infinite (could do sth similar with `{ p : ℕ // p.Prime }`)
+    -- The set of primes is infinite
     { p : ℕ | p.Prime }.Infinite,
+
+    -- The subtype of primes is infinite
+    Infinite { p : ℕ // p.Prime },
 
     -- For any finite set we can find a prime number outside of it
     ∀ (S : Finset ℕ), (∃ p ∉ S, p.Prime),
