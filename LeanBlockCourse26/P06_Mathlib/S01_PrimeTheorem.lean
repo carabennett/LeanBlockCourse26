@@ -67,7 +67,11 @@ theorem infinitude_of_primes_tfae : [
     (∀ n : ℕ, (∃ p > n, p.Prime)),
 
     -- 6) There exists an injection from the Natural numbers into the primes
-    ∃ (P : ℕ → ℕ) (h : P.Injective), (∀ k, (P k).Prime) ].TFAE := by
+    ∃ (P : ℕ → ℕ) (h : P.Injective), (∀ k, (P k).Prime),
+
+    -- 7) The sequence of primes is strictly monotone increasing
+    StrictMono (Nat.nth Nat.Prime),
+  ].TFAE := by
 
   tfae_have 5 → 6 := by sorry -- Theo
 
@@ -95,25 +99,9 @@ theorem infinitude_of_primes_tfae : [
 
   tfae_have 3 → 5 := by sorry -- Daniel
 
+  tfae_have 7 → 1 := by sorry
+
+  tfae_have 1 → 7 := by sorry
+
   tfae_finish
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
