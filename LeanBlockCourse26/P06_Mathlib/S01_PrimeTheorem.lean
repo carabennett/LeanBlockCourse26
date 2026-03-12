@@ -138,49 +138,31 @@ theorem Set.mem_toFinset : a ∈ hs.toFinset ↔ a ∈ s := ...
 -/
 
 theorem infinitude_of_primes_tfae : [
-   /-
-   **(1) The set of primes is infinite**
-   -/
+   -- **(1) The set of primes is infinite**
    { p : ℕ | p.Prime }.Infinite,
 
-   /-
-   **(2) The subtype of primes is infinite**
-   -/
+   -- **(2) The subtype of primes is infinite**
    Infinite { p : ℕ // p.Prime },
 
-   /-
-   **(3) For any finite set we can find a prime number outside of it**
-   -/
+   -- **(3) For any finite set we can find a prime number outside of it**
    ∀ (S : Finset ℕ), (∃ p ∉ S, p.Prime),
 
-   /-
-   **(4) For any finite set *of primes* we can find a prime outside of it**
-   -/
+   -- **(4) For any finite set *of primes* we can find a prime outside of it**
    (∀ (S : Finset ℕ) (_ : ∀ s ∈ S, Nat.Prime s), (∃ p ∉ S, p.Prime)),
 
-   /-
-   **(5) For any natural number there exists a prime strictly greater than it**
-   -/
+   -- **(5) For any natural number there exists a prime strictly greater than it**
    (∀ n : ℕ, (∃ p > n, p.Prime)),
 
-   /-
-   **(6) There exists an injection from the Natural numbers into the primes**
-   -/
+   -- **(6) There exists an injection from the Natural numbers into the primes**
    ∃ (P : ℕ → ℕ) (h : P.Injective), (∀ k, (P k).Prime),
 
-   /-
-   **(7) The sequence of primes is strictly monotone increasing**
-   -/
+   -- **(7) The sequence of primes is strictly monotone increasing**
    StrictMono (Nat.nth Nat.Prime),
 
-   /-
-   **(8) The prime counting function is unbounded**
-   -/
+   -- **(8) The prime counting function is unbounded**
    -- ∀ n : ℕ, ∃ m, n ≤ Nat.primeCounting m,
 
-   /-
-   **(9) The cardinality of the primes equals ℵ₀**
-   -/
+   -- **(9) The cardinality of the primes equals ℵ₀**
    -- Cardinal.mk { p : ℕ // p.Prime } = ℵ₀,
    ].TFAE := by
 
@@ -349,7 +331,7 @@ theorem infinitude_of_primes_tfae : [
       have pPP : Nat.Prime p := pP
       exact not_prime pPP
 
-   tfae_have 3 → 5 := by -- Daniel
+   tfae_have 3 → 5 := by
       intro rhs n
       obtain ⟨p, p_notin_S, p_prime⟩ := rhs (Finset.range (n + 1))
       exact ⟨p, by simp [Finset.mem_range] at p_notin_S; omega, p_prime⟩
